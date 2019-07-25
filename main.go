@@ -25,12 +25,11 @@ func main() {
 	if err != nil {
 		return
 	}
-	fmt.Println(url)
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true, VerifyPeerCertificate: nil},
 	}
 	var client = &http.Client{Transport: tr}
-	resp, err := client.Get("https://192.168.10.9:8443/portal/PortalSetup.action?portal=ee753630-a594-11e5-bc65-005056aa7bee&sessionId=c0a80c01004c06435d3831cb&action=cwa")
+	resp, err := client.Get(url)
 	if err != nil {
 		panic(err)
 	}
